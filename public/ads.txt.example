@@ -1,0 +1,5 @@
+# MODELO: NÃO PUBLIQUE ESTE EXEMPLO COMO ads.txt
+# Depois que o Google aprovar o site, crie o arquivo public/ads.txt
+# copiando a linha exata fornecida no painel do Google AdSense.
+# Exemplo da documentação oficial (substitua pub-000... pelo seu próprio identificador):
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
