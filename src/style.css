@@ -34,3 +34,110 @@
 @media(max-width:580px) { .ad-space--placeholder .ad-space__placeholder { min-height:84px; } .ad-space__placeholder strong { font-size:11px; } .ad-horizontal--bottom { margin-bottom:25px; } }
 
 .privacy-options-button{border:0;background:transparent;color:#728d7c;padding:4px 0;font-size:11px;cursor:pointer}.privacy-options-button:hover{text-decoration:underline;color:#356a49}
+
+
+/* QR Livre Android UI: navegação à esquerda e respeito às áreas seguras.
+   O Capacitor 7 ajusta as margens nativas no Android 15+. Quando o WebView
+   reporta insets via CSS, usamos esses valores; em outros sistemas, nada muda. */
+@media (max-width: 780px) {
+  .site-header { position: relative; z-index: 30; }
+  .header-inner { justify-content: flex-start; gap: 12px; }
+  .menu-button {
+    order: -1;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 12px;
+    background: #eff5ef;
+    color: #173e33;
+  }
+  .menu-button:active { background: #e1eee3; }
+  .brand-link { margin-right: auto; }
+  .header-actions { margin-left: auto; }
+  /* A lista deve iniciar abaixo do cabeçalho, inclusive quando há status bar. */
+  .header-nav { top: 100%; }
+}
+@media (max-width: 370px) {
+  .header-free { display: none; }
+  .header-inner { gap: 8px; }
+}
+/* Somente WebView Android: o navegador e a PWA mantêm seus estilos atuais. */
+.native-android .site-header {
+  height: calc(78px + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.native-android .site-shell {
+  padding-bottom: calc(var(--native-ad-height) + env(safe-area-inset-bottom, 0px));
+}
+@media (max-width: 780px) {
+  .native-android .site-header {
+    height: calc(69px + env(safe-area-inset-top, 0px));
+  }
+}
+@media (max-width: 580px) {
+  .native-android .site-header {
+    height: calc(64px + env(safe-area-inset-top, 0px));
+  }
+}
+
+/* QR Livre: cabeçalho persistente em Web, PWA e Android.
+   overflow: clip evita que o contêiner se torne o scroll container de sticky. */
+.site-shell { overflow: clip; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 3px 14px rgba(18, 53, 42, 0.07);
+}
+.header-inner { justify-content: flex-start; }
+.header-inner .brand-link { margin-right: 0; }
+#gerador, #como-funciona {
+  scroll-margin-top: calc(90px + env(safe-area-inset-top, 0px));
+}
+
+/* Navegação da versão web restaurada, sem voltar ao menu hambúrguer.
+   No Android nativo, apenas o logotipo permanece no cabeçalho. */
+@media (max-width: 780px) {
+  html:not(.native-android) .site-header { height: auto; }
+  html:not(.native-android) .header-inner {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding-top: 9px;
+  }
+  html:not(.native-android) .header-nav {
+    display: flex;
+    position: static;
+    order: 3;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(14px, 4vw, 28px);
+    margin: 0;
+    padding: 0 0 8px;
+    overflow-x: auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  html:not(.native-android) .header-nav a,
+  html:not(.native-android) .header-nav button {
+    width: auto;
+    padding: 9px 0;
+    font-size: 12px;
+    text-align: left;
+    flex: 0 0 auto;
+  }
+  html:not(.native-android) .header-actions { margin-left: auto; }
+}
+@media (max-width: 380px) {
+  html:not(.native-android) .header-free {
+    display: inline-flex;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}

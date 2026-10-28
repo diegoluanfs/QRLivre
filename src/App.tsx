@@ -4,7 +4,7 @@ import {
   ArrowDownToLine, ArrowRight, BadgeCheck, Check, CheckCheck, ChevronDown,
   CircleHelp, ClipboardCopy, CloudOff, Code2, Download, ExternalLink,
   FileText, Globe2, ImagePlus, Layers3, Link2, LockKeyhole, Mail,
-  Menu, MessageCircle, Palette, Phone, QrCode, RefreshCcw, ShieldCheck,
+  MessageCircle, Palette, Phone, QrCode, RefreshCcw, ShieldCheck,
   SlidersHorizontal, Sparkles, Trash2, Wifi, X,
 } from 'lucide-react';
 import { buildQrPayload, initialForm, type QrForm, type QrKind } from './lib/qrPayload';
@@ -65,7 +65,6 @@ function App() {
   const [format, setFormat] = useState<ExportType>('png');
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState('');
-  const [mobileMenu, setMobileMenu] = useState(false);
   const qrContainer = useRef<HTMLDivElement>(null);
   const qrInstance = useRef<QRCodeStyling | null>(null);
   const logoInput = useRef<HTMLInputElement>(null);
@@ -154,7 +153,6 @@ function App() {
 
   const scrollToGenerator = useCallback(() => {
     document.getElementById('gerador')?.scrollIntoView({ behavior: 'smooth' });
-    setMobileMenu(false);
   }, []);
 
   const activeLabel = kinds.find(item => item.id === kind)?.label || 'QR Code';
@@ -166,21 +164,24 @@ function App() {
     return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05) < 4.5;
   })();
 
-  return <div className="site-shell">
+  return <div id="inicio" className="site-shell">
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand-link" href={import.meta.env.BASE_URL} aria-label="QR Livre, início"><Logo /></a>
-        <nav className={`header-nav ${mobileMenu ? 'is-open' : ''}`} aria-label="Navegação principal">
-          <button onClick={scrollToGenerator}>Gerador</button>
-          <a href="#como-funciona" onClick={() => setMobileMenu(false)}>Como funciona</a>
-          <a href={`${import.meta.env.BASE_URL}privacidade.html`} onClick={() => setMobileMenu(false)}>Privacidade</a>
-        </nav>
-        <div className="header-actions">
-          <span className="header-free"><span className="status-light" /> 100% gratuito</span>
-          <button className="menu-button" type="button" onClick={() => setMobileMenu(!mobileMenu)} aria-label={mobileMenu ? 'Fechar menu' : 'Abrir menu'} aria-expanded={mobileMenu}>
-            {mobileMenu ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+        <a className="brand-link" href="#inicio" aria-label="QR Livre — voltar ao topo">
+          <Logo />
+        </a>
+        {!isNativeApp && (
+          <>
+            <nav className="header-nav" aria-label="Navegação principal">
+              <button type="button" onClick={scrollToGenerator}>Gerador</button>
+              <a href="#como-funciona">Como funciona</a>
+              <a href={`${import.meta.env.BASE_URL}privacidade.html`}>Privacidade</a>
+            </nav>
+            <div className="header-actions">
+              <span className="header-free"><span className="status-light" /> 100% gratuito</span>
+            </div>
+          </>
+        )}
       </div>
     </header>
 

@@ -4,5 +4,5 @@
     <string name="title_activity_main">QR Livre</string>
     <string name="package_name">com.diegoluan.qrlivre</string>
     <string name="custom_url_scheme">com.diegoluan.qrlivre</string>
-    <string name="admob_app_id">ca-app-pub-9294489692358309~8593992577</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
 </resources>
