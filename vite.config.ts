@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { adsenseWebPlugin } from './scripts/adsense-vite-plugin';
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1];
 const base = process.env.GITHUB_PAGES === 'true' && repositoryName ? `/${repositoryName}/` : '/';
@@ -9,6 +10,7 @@ const base = process.env.GITHUB_PAGES === 'true' && repositoryName ? `/${reposit
 export default defineConfig({
   base,
   plugins: [
+    adsenseWebPlugin(),
     react(),
     tailwindcss(),
     VitePWA({
