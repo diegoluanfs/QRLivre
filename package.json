@@ -15,16 +15,16 @@
     "android:ads:configure": "node scripts/configure-android-ads.mjs"
   },
   "dependencies": {
-    "@capacitor-community/admob": "^7.2.0",
-    "@capacitor/android": "^7.4.4",
-    "@capacitor/core": "^7.4.4",
+    "@capacitor-community/admob": "^8.2.1",
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
     "lucide-react": "^0.468.0",
     "qr-code-styling": "^1.9.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@capacitor/cli": "^7.4.4",
+    "@capacitor/cli": "^8.6.0",
     "@tailwindcss/vite": "^4.1.0",
     "@types/node": "^22.13.0",
     "@types/react": "^19.2.0",
@@ -36,5 +36,9 @@
     "vite-plugin-pwa": "^2.0.0",
     "vitest": "^5.0.5",
     "wrangler": "^4.153.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261023.1": true
   }
 }
