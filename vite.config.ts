@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { blogRoutesPlugin } from './scripts/blog-routes-vite-plugin';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -10,6 +11,7 @@ const base = process.env.GITHUB_PAGES === 'true' && repositoryName ? `/${reposit
 export default defineConfig({
   base,
   plugins: [
+    blogRoutesPlugin(),
     adsenseWebPlugin(),
     react(),
     tailwindcss(),
@@ -34,6 +36,7 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
         navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/^\/blog(?:\/|$)/, /^\/sobre(?:\.html)?$/, /^\/privacidade(?:\.html)?$/],
       },
     }),
   ],

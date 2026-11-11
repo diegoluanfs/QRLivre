@@ -18,3 +18,18 @@ coverage/
 **/keystore.properties
 **/key.properties
 **/signing.properties
+
+# Conteúdo editorial estático gerado no build
+public/blog/
+public/sitemap.xml
+public/robots.txt
+public/sobre.html
+
+# Arquivos de publicidade web gerados no build v1.4
+public/assets/qrlivre-ads-config.js
+public/assets/qrlivre-web-ads.js
+public/assets/qrlivre-web-ads.css
+QR-Livre-Monetizacao-Web-v1.4.zip
+QR-Livre-Monetizacao-Web-v1.4/
+
+tsconfig.tsbuildinfo

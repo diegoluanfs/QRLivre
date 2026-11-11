@@ -1,3 +1,5 @@
+import BlogHighlights from './components/BlogHighlights';
+import { PortalAdSlot } from './ads/PortalAdSlot';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import QRCodeStyling, { type Options } from 'qr-code-styling';
 import {
@@ -8,7 +10,6 @@ import {
   SlidersHorizontal, Sparkles, Trash2, Wifi, X,
 } from 'lucide-react';
 import { buildQrPayload, initialForm, type QrForm, type QrKind } from './lib/qrPayload';
-import { AdSlot } from './ads/AdSlot';
 import { openNativeAdPrivacyOptions, startNativeBanner } from './ads/nativeBanner';
 import { isNativeApp, nativeAdConfig } from './ads/config';
 
@@ -175,6 +176,7 @@ function App() {
             <nav className="header-nav" aria-label="Navegação principal">
               <button type="button" onClick={scrollToGenerator}>Gerador</button>
               <a href="#como-funciona">Como funciona</a>
+              <a href="/blog/">Blog</a>
               <a href={`${import.meta.env.BASE_URL}privacidade.html`}>Privacidade</a>
             </nav>
             <div className="header-actions">
@@ -199,8 +201,6 @@ function App() {
         </div>
         <div className="hero-decoration" aria-hidden="true"><div className="decoration-swoosh"><QrCode strokeWidth={1.2} size={140}/></div><div className="decoration-sticker"><Check size={16}/> Tudo pronto para compartilhar</div></div>
       </section>
-
-      <div className="container ad-horizontal"><AdSlot placement="top" /></div>
 
       <section className="container editor-layout" id="gerador" aria-label="Gerador de QR Code">
         <div className="editor-column">
@@ -307,7 +307,6 @@ function App() {
             </div>
           </div>
           <div className="tip-card"><div className="tip-icon"><CircleHelp size={20}/></div><div><strong>Uma dica importante</strong><p>Antes de compartilhar ou imprimir, escaneie o QR Code com a câmera do celular para confirmar que está tudo certo.</p></div></div>
-          <div className="ad-sidebar"><AdSlot placement="sidebar" /></div>
         </aside>
       </section>
 
@@ -319,11 +318,13 @@ function App() {
           <div className="how-item"><span className="how-number">03</span><div className="how-icon"><Download size={24}/></div><h3>Baixe e compartilhe</h3><p>Salve em PNG, SVG ou JPEG. Pronto para usar onde quiser.</p></div>
         </div>
       </section>
-      <div className="container ad-horizontal ad-horizontal--bottom"><AdSlot placement="bottom" /></div>
+      {!isNativeApp && <BlogHighlights />}
+      {!isNativeApp && <PortalAdSlot placement="generator" />}
+      
       <section className="bottom-cta container"><div><span><Sparkles size={16}/> SIMPLES ASSIM</span><h2>Sua próxima ideia merece ser compartilhada.</h2></div><button onClick={scrollToGenerator}>Criar meu QR Code <ArrowRight size={18}/></button></section>
     </main>
 
-    <footer className="site-footer"><div className="container footer-inner"><div><Logo/><p>Compartilhar deveria ser simples.</p></div><div className="footer-right"><a href={`${import.meta.env.BASE_URL}privacidade.html`}>Privacidade <ExternalLink size={13}/></a>{isNativeApp && nativeAdConfig.enabled && <button type="button" className="privacy-options-button" onClick={() => void openNativeAdPrivacyOptions()}>Preferências de anúncios</button>}<span><Code2 size={15}/> Feito com carinho, sem complicação.</span><small>© {new Date().getFullYear()} QR Livre</small></div></div></footer>
+    <footer className="site-footer"><div className="container footer-inner"><div><Logo/><p>Compartilhar deveria ser simples.</p></div><div className="footer-right">{!isNativeApp && <button type="button" className="privacy-options-button" data-open-privacy-settings>Preferências de métricas</button>}{!isNativeApp && <><a href="/blog/">Blog</a><a href="/sobre.html">Sobre</a></>}<a href={`${import.meta.env.BASE_URL}privacidade.html`}>Privacidade <ExternalLink size={13}/></a>{isNativeApp && nativeAdConfig.enabled && <button type="button" className="privacy-options-button" onClick={() => void openNativeAdPrivacyOptions()}>Preferências de anúncios</button>}<span><Code2 size={15}/> Feito com carinho, sem complicação.</span><small>© {new Date().getFullYear()} QR Livre</small></div></div></footer>
     {notice && <div className="toast" role="status"><Check size={17}/><span>{notice}</span><button onClick={() => setNotice('')} aria-label="Fechar aviso"><X size={15}/></button></div>}
   </div>;
 }

@@ -12,7 +12,11 @@
     "android:init": "npm run build && npx cap add android && npm run android:ads:configure",
     "android:sync": "npm run build && npx cap sync android && npm run android:ads:configure",
     "android:open": "npx cap open android",
-    "android:ads:configure": "node scripts/configure-android-ads.mjs"
+    "android:ads:configure": "node scripts/configure-android-ads.mjs",
+    "prebuild": "node scripts/build-blog.mjs",
+    "predev": "node scripts/build-blog.mjs",
+    "check:blog": "node scripts/build-blog.mjs && node scripts/test-blog.mjs",
+    "check:ads": "node scripts/build-blog.mjs && node scripts/test-web-ads.mjs"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.2.1",

@@ -1,0 +1,20 @@
+{
+  "enabled": false,
+  "siteApproved": false,
+  "privacyIntegrationReady": false,
+  "publisherId": "ca-pub-9294489692358309",
+  "slots": {
+    "generator": "",
+    "blogIndexFirst": "",
+    "blogIndexLast": "",
+    "articleMiddle": "",
+    "articleEnd": ""
+  },
+  "placements": {
+    "generator": true,
+    "blogIndexFirst": true,
+    "blogIndexLast": true,
+    "articleMiddle": true,
+    "articleEnd": true
+  }
+}
