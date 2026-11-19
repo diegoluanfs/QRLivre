@@ -1,10 +1,8 @@
 # QR Livre v1.6 — Analytics direto
 
-Substitui a integração GTM anterior `GTM-NSP5WG4F` por uma única Google tag `G-1NNWXVJLZR`. Não requer publicar contêiner GTM, API secret, nem alterar AdSense/AdMob. Instalação incremental sobre v1.5. Não muda a versão do pacote Android/número de build.
+Substitui a integração GTM anterior `GTM-NSP5WG4F` por uma única Google tag `G-TKHY6BQRTF`. Não requer publicar contêiner GTM, API secret, nem alterar AdSense/AdMob. Instalação incremental sobre v1.5. Não muda a versão do pacote Android/número de build.
 
-## Instalação
-
-Extraia o ZIP e execute `node <pasta>/INSTALAR_ANALYTICS_V16.mjs .` na raiz de QRLivre. O instalador valida as âncoras antes de gravar, faz backup fora do repositório, remove somente o runtime antigo reconhecido e snippets conhecidos, altera as referências do React/blog, preserva as escolhas locais e atualiza a política. Se houver código não reconhecido, para sem gravar. Não apaga documentos, dependências, scripts de build, conteúdo, .env ou chaves. Em caso de falha na gravação, tenta restaurar os arquivos já alterados. O manifesto do backup registra também os arquivos novos.
+O fluxo Web de produção é **QR Livre Web** (16375367617), em https://qrlivre.com.br. A exportação concluída pela biblioteca dispara `qr_export` com `qr_type` e `file_format` após consentimento.
 
 ## Configuração única na conta GA4
 
@@ -18,6 +16,6 @@ O runtime bloqueia a tag fora do domínio público HTTPS (localhost apenas exibe
 
 ## Produção
 
-Após deploy na Cloudflare, abra uma janela privada sem bloqueador, aceite métricas, visite o blog e um artigo. DevTools > Network: `gtag/js?id=G-1NNWXVJLZR` e `g/collect` (ID `tid=G-1NNWXVJLZR`), nenhuma requisição `gtm.js?id=GTM-NSP5WG4F`. Abra o relatório Tempo real ou Tag Assistant. Em outra janela, recuse métricas e confirme que a tag não carrega. Use janela nova se a PWA antiga estiver em cache. O alerta de instalação do fluxo pode demorar a atualizar. Nenhum evento personalizado de produto é habilitado nesta etapa; primeiro confirme page_view e revise as configurações de coleta.
+Após deploy na Cloudflare, abra uma janela privada sem bloqueador, aceite métricas, visite o blog e um artigo. DevTools > Network: `gtag/js?id=G-TKHY6BQRTF` e `g/collect` (ID `tid=G-TKHY6BQRTF`), nenhuma requisição `gtm.js?id=GTM-NSP5WG4F`. Abra o relatório Tempo real ou Tag Assistant. Em outra janela, recuse métricas e confirme que a tag não carrega. Use janela nova se a PWA antiga estiver em cache. O alerta de instalação do fluxo pode demorar a atualizar. Nenhum evento personalizado de produto é habilitado nesta etapa; primeiro confirme page_view e revise as configurações de coleta.
 
 Arquivos de instalação podem ser movidos para fora do repositório após o teste; não use `git clean -fdx`. O AdSense conserva os cinco slots/configurações e o mecanismo de revisão da v1.5, sem ligá-los automaticamente. A aceitação de métricas não habilita os anúncios.

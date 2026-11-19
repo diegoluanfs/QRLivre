@@ -127,6 +127,9 @@ function App() {
     setBusy(true);
     try {
       await qrInstance.current.download({ name: `qr-livre-${kind}`, extension: format });
+      if (!isNativeApp) {
+        window.dispatchEvent(new CustomEvent('qrlivre:export', { detail: { kind, format } }));
+      }
       setNotice(`QR Code ${format.toUpperCase()} exportado com sucesso.`);
     } catch {
       setNotice('Não foi possível baixar o arquivo. Tente outro formato.');

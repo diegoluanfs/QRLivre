@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   if (window.Capacitor?.isNativePlatform?.() || window.__qrlAnalyticsV16) return;
-  const ID = 'G-1NNWXVJLZR';
+  const ID = 'G-TKHY6BQRTF';
   const KEY = 'qrlivre-metrics-choice-v1'; // mantém a escolha já feita para a mesma finalidade
   const production = location.protocol === 'https:' && ['qrlivre.com.br', 'www.qrlivre.com.br'].includes(location.hostname);
   const preview = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
@@ -40,6 +40,12 @@
     gtag('set', context);
     gtag('config', ID, { ...context, send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false, cookie_flags: 'SameSite=Lax;Secure' });
     gtag('event', 'page_view', { ...context, send_to: ID });
+    window.addEventListener('qrlivre:export', ({ detail }) => {
+      if (choice !== 'accepted' || window[disabledKey]) return;
+      if (!['url', 'text', 'wifi', 'whatsapp', 'email', 'phone', 'pix'].includes(detail?.kind)) return;
+      if (!['png', 'svg', 'jpeg'].includes(detail.format)) return;
+      gtag('event', 'qr_export', { send_to: ID, qr_type: detail.kind, file_format: detail.format });
+    });
     const script = document.createElement('script');
     script.id = 'qrlivre-ga4-script'; script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
