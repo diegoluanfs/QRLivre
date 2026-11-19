@@ -19,7 +19,9 @@
     "check:ads": "node scripts/build-blog.mjs && node scripts/test-web-ads.mjs",
     "build:android": "node scripts/build-android.mjs",
     "check:seo": "node scripts/build-blog.mjs && node scripts/test-seo.mjs",
-    "check:seo:dist": "node scripts/test-seo.mjs --dist"
+    "check:seo:dist": "node scripts/test-seo.mjs --dist",
+    "check:analytics": "node scripts/build-blog.mjs && node scripts/test-analytics.mjs",
+    "check:analytics:dist": "node scripts/test-analytics.mjs --dist"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.2.1",

@@ -93,7 +93,7 @@ ${body}
 <footer class="footer"><div class="wrap footer-inner"><div><a class="brand" href="/"><span class="brand-icon" aria-hidden="true">▦</span><span>QR<span class="brand-light">Livre</span><b>.</b></span></a><p>Ferramentas gratuitas e informações para usar QR Codes com confiança.</p></div><div class="footer-links"><a href="/">Gerador</a><a href="/blog/">Blog</a><a href="/sobre.html">Sobre</a><a href="/privacidade.html">Privacidade</a><button type="button" data-open-privacy-settings>Preferências de métricas</button></div></div><div class="wrap footer-copy">© ${new Date().getFullYear()} QR Livre · Ferramenta gratuita · Conteúdo educativo</div></footer>
 <script defer src="/assets/qrlivre-ads-config.js"></script>
 <script defer src="/assets/qrlivre-web-ads.js"></script>
-<script defer src="/assets/qrlivre-consent.js"></script>
+<script defer src="/assets/qrlivre-analytics.js"></script>
 </body></html>`;
 }
 async function main() {

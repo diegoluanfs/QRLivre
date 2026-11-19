@@ -1,3 +1,5 @@
+> **Atualização v1.6 — Analytics:** o contêiner GTM foi substituído pelo GA4 direto. Consulte [ANALYTICS_v1.6.md](ANALYTICS_v1.6.md) para a configuração vigente. As instruções antigas abaixo são históricas.
+
 # QR Livre — SEO e revisão AdSense v1.5
 
 Complemento incremental para v1.4. Não altera os artigos Markdown, o GTM, os IDs de banner, os dados do gerador, as configurações nativas ou o estado de aprovação.

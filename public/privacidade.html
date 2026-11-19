@@ -19,7 +19,7 @@
 <main>
   <a href="./">← Voltar ao QR Livre</a>
   <h1>Política de Privacidade</h1>
-  <small>Atualizada em 18 de novembro de 2026 — versão com infraestrutura opcional de anúncios</small>
+  <small>Atualizada em 19 de novembro de 2026 — versão com infraestrutura opcional de anúncios</small>
   <p>O QR Livre permite gerar QR Codes gratuitamente. A geração é executada no próprio dispositivo, sem necessidade de conta, banco de dados ou serviço remoto para transformar os dados inseridos em códigos.</p>
   <h2>Dados usados na geração</h2>
   <p>Links, textos, credenciais Wi-Fi, contatos, informações Pix e imagens enviadas para o QR Code são processados localmente. Não enviamos esse conteúdo por meio de uma API própria. Atenção: se você adicionar dados pessoais ou uma senha ao QR Code, qualquer pessoa que tenha acesso ao código poderá lê-los.</p>
@@ -29,9 +29,10 @@
   <p>Na versão web, durante a verificação do domínio, o código oficial do AdSense pode ser incluído na página inicial sem acionar blocos manuais de anúncios. Quando esse código é habilitado, o navegador faz conexão com serviços do Google, que podem tratar informações técnicas, como o endereço IP. A inclusão do código não equivale à aprovação do site. O consentimento opcional de métricas não autoriza automaticamente a publicidade.</p>
   <h2>Consentimento e preferências</h2>
   <p>Antes da ativação de anúncios reais, o responsável pelo QR Livre deve configurar as mensagens de consentimento exigidas conforme a região e as políticas do Google. No aplicativo, o fluxo de consentimento da plataforma AdMob/UMP é preparado pela integração nativa e a opção “Preferências de anúncios” fica disponível na interface. Na web, o consentimento opcional de métricas não substitui uma plataforma certificada de consentimento publicitário; a publicidade deverá permanecer desativada até que a solução apropriada esteja implantada.</p>
-  <h2>Métricas opcionais e Google Tag Manager</h2>
-  <p>Na versão web, solicitamos sua escolha antes de carregar o Google Tag Manager (contêiner GTM-NSP5WG4F), que pode acionar ferramentas de análise configuradas pelo responsável. Se você não aceitar, esse contêiner não será carregado pelo mecanismo de consentimento do QR Livre. Sua escolha fica registrada localmente no navegador, e pode ser revista pelo link "Preferências de métricas" no rodapé do site e do blog.</p>
-  <p>O consentimento de métricas <strong>não</strong> substitui o sistema de consentimento certificado eventualmente exigido pelo Google para publicidade nas regiões aplicáveis. Banners web permanecem desativados enquanto o site aguarda revisão.</p>
+  <h2>Métricas opcionais e Google Analytics 4</h2>
+  <p>Na versão web, usamos Google Analytics 4 (identificador G-1NNWXVJLZR) somente se você aceitar métricas. O serviço pode tratar dados técnicos, cookies, informações do dispositivo e navegação. Nossa integração não envia os dados digitados no gerador, chaves Pix, senhas de Wi-Fi ou termos de busca; os endereços de página enviados pela integração são canônicos, sem parâmetros de consulta ou fragmentos. A escolha fica registrada no navegador. Você pode alterá-la a qualquer momento pelo rodapé ou pelo botão abaixo.</p>
+  <p><button type="button" data-open-privacy-settings>Preferências de métricas</button></p>
+  <p>O consentimento de métricas não autoriza publicidade nem substitui uma plataforma de consentimento publicitário exigida nas regiões aplicáveis. Saiba mais na <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidade do Google</a>.</p>
   <h2>Hospedagem, cookies técnicos e modo offline</h2>
   <p>O provedor de hospedagem pode registrar informações técnicas da conexão, como IP, horário e eventos de segurança. O modo PWA utiliza cache do navegador para permitir o funcionamento offline após o carregamento inicial. A publicidade, quando ativada, depende de serviços externos e pode não funcionar offline.</p>
   <h2>Serviços de destino</h2>
@@ -40,5 +41,6 @@
   <p>O QR Livre é um projeto independente com informações públicas no <a href="https://github.com/diegoluanfs/QRLivre" target="_blank" rel="noopener noreferrer">repositório do projeto</a>. Você pode relatar problemas e solicitar esclarecimentos pelas <a href="https://github.com/diegoluanfs/QRLivre/issues" target="_blank" rel="noopener noreferrer">issues</a>. Esta política será revisada quando os serviços efetivamente utilizados mudarem.</p>
   <p><a href="./">Voltar ao gerador</a> · <a href="/blog/">Blog</a> · <a href="/sobre.html">Sobre</a></p>
 </main>
+<script defer src="/assets/qrlivre-analytics.js"></script>
 </body>
 </html>

@@ -16,10 +16,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>,
 );
 
-// Carrega Google Tag Manager apenas na WEB e somente após consentimento.
+// Analytics GA4 direto, apenas na WEB e após consentimento.
 if (!isNativeApp) {
   const consentScript = document.createElement('script');
-  consentScript.src = '/assets/qrlivre-consent.js';
+  consentScript.src = '/assets/qrlivre-analytics.js';
   consentScript.async = true;
   document.head.appendChild(consentScript);
 }

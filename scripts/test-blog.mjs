@@ -17,6 +17,6 @@ for(const dir of articles){
   assert.ok((html.match(/<p>/g)||[]).length >= 7,`${dir.name}: conteúdo insuficiente`);
   count++;
 }
-for(const file of ['public/blog/index.html','public/sobre.html','public/sitemap.xml','public/robots.txt','public/assets/qrlivre-consent.js'])assert.ok((await stat(join(root,file))).size>30,`${file}: arquivo ausente`);
+for(const file of ['public/blog/index.html','public/sobre.html','public/sitemap.xml','public/robots.txt','public/assets/qrlivre-analytics.js'])assert.ok((await stat(join(root,file))).size>30,`${file}: arquivo ausente`);
 const index=await readFile(join(root,'index.html'),'utf8');assert.doesNotMatch(index,/googletagmanager\.com\/gtm\.js/i,'GTM direto no index.html ignora o consentimento');
 console.log(`[QR Livre] Portal validado: ${count} artigos, SEO, sitemap e consentimento.`);

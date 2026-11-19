@@ -1,3 +1,5 @@
+> **Atualização v1.6 — Analytics:** o contêiner GTM foi substituído pelo GA4 direto. Consulte [ANALYTICS_v1.6.md](ANALYTICS_v1.6.md) para a configuração vigente. As instruções antigas abaixo são históricas.
+
 # QR Livre v1.3 — Portal e blog
 
 ## O que muda
