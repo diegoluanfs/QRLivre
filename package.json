@@ -9,14 +9,17 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
     "test:watch": "vitest",
-    "android:init": "npm run build && npx cap add android && npm run android:ads:configure",
-    "android:sync": "npm run build && npx cap sync android && npm run android:ads:configure",
+    "android:init": "npm run build:android && npx cap add android && npm run android:ads:configure",
+    "android:sync": "npm run build:android && npx cap sync android && npm run android:ads:configure",
     "android:open": "npx cap open android",
     "android:ads:configure": "node scripts/configure-android-ads.mjs",
     "prebuild": "node scripts/build-blog.mjs",
     "predev": "node scripts/build-blog.mjs",
     "check:blog": "node scripts/build-blog.mjs && node scripts/test-blog.mjs",
-    "check:ads": "node scripts/build-blog.mjs && node scripts/test-web-ads.mjs"
+    "check:ads": "node scripts/build-blog.mjs && node scripts/test-web-ads.mjs",
+    "build:android": "node scripts/build-android.mjs",
+    "check:seo": "node scripts/build-blog.mjs && node scripts/test-seo.mjs",
+    "check:seo:dist": "node scripts/test-seo.mjs --dist"
   },
   "dependencies": {
     "@capacitor-community/admob": "^8.2.1",

@@ -1,3 +1,4 @@
+import { seoReviewPlugin } from './scripts/seo-vite-plugin.mjs';
 import { defineConfig } from 'vite';
 import { blogRoutesPlugin } from './scripts/blog-routes-vite-plugin';
 import react from '@vitejs/plugin-react';
@@ -11,6 +12,7 @@ const base = process.env.GITHUB_PAGES === 'true' && repositoryName ? `/${reposit
 export default defineConfig({
   base,
   plugins: [
+    seoReviewPlugin(),
     blogRoutesPlugin(),
     adsenseWebPlugin(),
     react(),

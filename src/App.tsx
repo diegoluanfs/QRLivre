@@ -191,7 +191,7 @@ function App() {
       <section className="hero container">
         <div className="hero-copy">
           <div className="eyebrow"><Sparkles size={14} /> SIMPLES, RÁPIDO E SEU</div>
-          <h1>Transforme qualquer ideia em um <em>QR Code.</em></h1>
+          <h1>Gerador de <em>QR Code gratuito.</em></h1>
           <p>Links, Wi-Fi, Pix e muito mais. Crie, personalize e baixe códigos incríveis em segundos — sem cadastro, sem limites artificiais.</p>
           <div className="hero-chips">
             <span><CheckCheck size={16} /> Sem cadastro</span>
